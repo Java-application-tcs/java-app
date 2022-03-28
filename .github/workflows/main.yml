@@ -30,21 +30,39 @@ jobs:
         with:
           java-version: '11'   
 
-      - name: Step 3- Cache SonarCloud packages
+      - name: Cache SonarCloud packages
         uses: actions/cache@v1
         with:
           path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
-
-      - name: Step 2 - build with maven
-        run: mvn -B package --file pom.xml  
-
-      - name: Sonar Code analyze
+      - name: Cache Maven packages
+        uses: actions/cache@v1
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+      - name: Build and analyze
         env:
-          GITHUB_TOKEN: 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 
-          SONAR_TOKEN: c9d4a664379e0dde30bedd94fd54a8c731bc0485
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=java-application-tcs
+          GITHUB_TOKEN: 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 #${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: b08dfa017350442c6c5908a19a73f764098cca95 #${{ secrets.SONAR_TOKEN }}
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Java-application-tcs_java-app
+
+      # - name: Step 3- Cache SonarCloud packages
+      #   uses: actions/cache@v1
+      #   with:
+      #     path: ~/.sonar/cache
+      #     key: ${{ runner.os }}-sonar
+      #     restore-keys: ${{ runner.os }}-sonar
+
+      # - name: Step 2 - build with maven
+      #   run: mvn -B package --file pom.xml  
+
+      # - name: Sonar Code analyze
+      #   env:
+      #     GITHUB_TOKEN: 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 
+      #     SONAR_TOKEN: c9d4a664379e0dde30bedd94fd54a8c731bc0485
+      #   run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=java-application-tcs
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
