@@ -33,6 +33,12 @@ jobs:
       - name: Step 2 - build with maven
         run: mvn -B package --file pom.xml  
 
+      - name: Sonar Code analyze
+        env:
+          GITHUB_TOKEN: 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 
+          SONAR_TOKEN: c9d4a664379e0dde30bedd94fd54a8c731bc0485
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=java-application-tcs
+
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
