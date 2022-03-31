@@ -44,8 +44,8 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       - name: Build and analyze
         env:
-          GITHUB_TOKEN: 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 #${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: b08dfa017350442c6c5908a19a73f764098cca95 #${{ secrets.SONAR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} #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   # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} # b08dfa017350442c6c5908a19a73f764098cca95 
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Java-application-tcs_java-app
 
       # - name: Step 3- Cache SonarCloud packages
