@@ -79,15 +79,16 @@ jobs:
             steps:
                   - uses: actions/checkout@v2
                                                                                               
-                             - uses: azure/docker-login@v1
+                                                               
+                           - uses: azure/docker-login@v1
         with:
-          login-server: 
+          login-server: akshatacontainerregistry.azurecr.io
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
 
       - run: |
-          docker build . -t yourACRname.azurecr.io/appdb:${{ github.sha }}
-          docker push yourACRname.azurecr.io/appdb:${{ github.sha }}
+          docker build . -t akshatacontainerregistry.azurecr.io/appdb:${{ github.sha }}
+          docker push akshatacontainerregistry.azurecr.io/appdb:${{ github.sha }}
       - name: Run a one-line script
         run: echo Hello, world!
 
