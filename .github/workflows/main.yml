@@ -65,7 +65,7 @@ jobs:
       #   run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=java-application-tcs
       
     name: Build a Docker image and Push it to ACR
-     on:
+   on:
   push:
     branches: [ master ]
   pull_request:
