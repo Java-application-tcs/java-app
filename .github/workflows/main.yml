@@ -83,8 +83,8 @@ jobs:
                            - uses: azure/docker-login@v1
         with:
           login-server: akshatacontainerregistry.azurecr.io
-          username: ${{ secrets.ACR_USERNAME }}
-          password: ${{ secrets.ACR_PASSWORD }}
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
 
       - run: |
           docker build . -t akshatacontainerregistry.azurecr.io/appdb:${{ github.sha }}
