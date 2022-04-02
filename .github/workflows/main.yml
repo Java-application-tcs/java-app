@@ -15,7 +15,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-# This workflow contains one job called build
+   #  This workflow contains one job called build
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -65,7 +65,7 @@ jobs:
       #   run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=java-application-tcs
       
     name: Build a Docker image and Push it to ACR
-   on:
+    on:
   push:
     branches: [ master ]
   pull_request:
