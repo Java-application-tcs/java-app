@@ -65,14 +65,14 @@ jobs:
       #   run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=java-application-tcs
       
       - name: ACR login
-      - uses: azure/docker-login@v1
+        uses: azure/docker-login@v1
         with:
           login-server: akshatacontainerregistry.azurecr.io
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
 
       - name: Docker build and Push
-      - run: |
+        run: |
             docker build . -t akshatacontainerregistry.azurecr.io/demo:latest
             docker push  akshatacontainerregistry.azurecr.io/demo:latest
                           
