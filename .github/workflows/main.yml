@@ -50,8 +50,6 @@ jobs:
 
       - name: Docker build and Push
         run: |
-            cd  target
-            ls
             docker build . -t akshatacontainerregistry.azurecr.io/demo:latest
             docker push  akshatacontainerregistry.azurecr.io/demo:latest
                           
