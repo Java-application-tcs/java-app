@@ -58,4 +58,6 @@ jobs:
         with:
          name: java-app
          path: '${{github.workspace}}/target/*.jar'
+      - name: Download all workflow run artifacts
+        uses: actions/download-artifact@v3
      
