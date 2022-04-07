@@ -53,4 +53,9 @@ jobs:
             docker build . -t akshatacontainerregistry.azurecr.io/demo:latest
             docker push  akshatacontainerregistry.azurecr.io/demo:latest
                           
-       
+      - name: Step-upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+         name: java-app
+         path: '${{github.workspace}}/target/*.jar'
+     
