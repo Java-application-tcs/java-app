@@ -50,8 +50,8 @@ jobs:
 
       - name: Docker build and Push
         run: |
-            docker build . -t akshatacontainerregistry.azurecr.io/demo:latest
-            docker push  akshatacontainerregistry.azurecr.io/demo:latest
+            docker build . -t akshataacr.azurecr.io/demo:latest
+            docker push  akshataacr.azurecr.io/demo:latest
                           
       - name: Step-upload artifact
         uses: actions/upload-artifact@v2
