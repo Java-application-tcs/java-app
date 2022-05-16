@@ -44,7 +44,7 @@ jobs:
       - name: ACR login
         uses: azure/docker-login@v1
         with:
-          login-server: akshatacontainerregistry.azurecr.io
+          login-server: akshataacr.azurecr.io
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
 
