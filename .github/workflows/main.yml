@@ -37,8 +37,8 @@ jobs:
      
       - name: Build and analyze
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} #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   # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} # b08dfa017350442c6c5908a19a73f764098cca95 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Java-application-tcs_java-app
       
       - name: ACR login
